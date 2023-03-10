@@ -12,6 +12,7 @@ public class seleniumLocators {
 		driver.findElement(By.name("inputPassword")).sendKeys("password");
 		driver.findElement(By.id("chkboxTwo")).click();
 		driver.findElement(By.className("submit")).click();
+		driver.findElement(By.cssSelector())
 		
 
 	}
