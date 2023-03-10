@@ -9,6 +9,9 @@ public class seleniumLocators {
 		WebDriver driver = new EdgeDriver();
 		driver.get("https://rahulshettyacademy.com/locatorspractice/");
 		driver.findElement(By.id("inputUsername")).sendKeys("Gayatri");
+		driver.findElement(By.name("inputPassword")).sendKeys("password");
+		driver.findElement(By.id("chkboxTwo")).click();
+		driver.findElement(By.className("submit")).click();
 		
 
 	}
