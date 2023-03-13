@@ -22,21 +22,55 @@ Selenium Scrrpt (Client) --> W3C Webdriver Protocol --> Browser Servers (.exe fi
 
 #### SELENIUM LOCATORS:
 1. The Locators are the 2ay to identify an HTML element on a web page. Selenium WebDriver uses any of the below locators to identify the element on the page and performs the action:
-   -- ID
-   -- Name
-   -- Class Name
-   -- LinkText
-   -- Partial LinkText
-   -- Tag Name
-   -- CssSelector
-   -- XPath
+* **ID
+* Name
+* Class Name
+* LinkText 
+* Partial LinkText
+* Tag Name
+* CssSelector
+* XPath**
 2. XPath and CSSSelector are universal and can be used on any HTML element.
-2. ***When a class name has 2 values, either one can be used when finding the element using class name.***
+
+##### CLASS NAME
+1. ***When a class name has 2 values, either one can be used when finding the element using class name.***
 
 ##### CSS SELECTOR
 1. if the HTML element has a className, syntax for cssSelector is ***tagname.classname***
 2. if the HTML element has an id, the syntax for cssSelector is ***tagname#is***
-3. When **id** or **className** are NOT available, cssSelector has a generic syntax `classname[attribute = value}`
+3. When **id** or **className** are NOT available, cssSelector has a generic syntax `classname[attribute = 'value']`
+4. TagName for any of the 3 formats is **OPTIONAL**.
+5. There are browser plugins to validate elements before using them in the code to automate. Elements can also be validated from the develiper tools console by writing the following:
+   `$('cssSelector')`. This will highlight the concerned webElement on the page.
+6. In an instance where there are more than one element with the same attribute and value, the required element can be located using an index.
+7. The syntax is `tagname[attribute = 'value']:nth-child(index_of_element)`.
+8. If there are 3 elements and the 3rd element needs to be located, the index will be 3.
+9. **CSSSELECTOR CONSIDERS HIDDEN ELEMENTS WHEN COUNTING ELEMENTS WITH THE SAME ATTRIBUTE AND VALUE. THEREFORE THE INDEX NUMBER BERWEEN XPTH AND CSS MAY BE DIFFERENT**.
+10. CSS Selector can be written using ONLY TAG NAMES to locate an element using parent-child traversing. This is helpful when there are no attributes available. Syntax is `parent-tagname child-tagname`
+9. In case a parent has multiple child tags with the same tag name, the syntax would be `parent-tagname child-tagname:nth-child(index_value)`
+
+##### LINKTEXT
+1. If the element has a link, we can use the LinkText selector.
+
+##### XPATH
+1. The general syntax for xpath is `//tagname[@attribute = 'value']`
+2. Even for xpath **tagname** is optional.
+3. In an instance where there are more than one element with the same attribute and value, the required element can be located using an index.
+4. The syntax is `//tagname[@attribute = 'value'][index_of_element]`. If there are 3 elements and the 3rd element needs to be located, the index will be 3.
+5. There are browser plugins to validate elements before using them in the code to automate. Elements can also be validated from the develiper tools console by writing the following:
+   `$x('cssSelector')`. This will highlight the concerned webElement on the page.
+6. **XPATH CONSIDERS HIDDEN ELEMENTS WHEN COUNTING ELEMENTS WITH THE SAME ATTRIBUTE AND VALUE. THEREFORE THE INDEX NUMBER BERWEEN XPTH AND CSS MAY BE DIFFERENT**.
+7. HENCE INDEXES ARE NOT RECOMMENDED. 
+8. Xpath can be written using ONLY TAG NAMES to locate an element using parent-child traversing. This is helpful when there are no attributes available. Syntax is `//parent-tagname/child-tagname`
+9. In case a parent has multiple child tags with the same tag name, the syntax would be `//parent-tagname/child-tagname[index_value]`
+
+
+
+
+
+##### IMPLICIT WAIT
+1. Implicit Wait is a global wait that defines the maximum time selenium should wait before of throwing an error.
+2. If the maximum time defined is 5 seconds and the element is found in 3 seconds, code continues execution. If the element is not found in 5 seoonds, then the code will error out. 
 
 
 
